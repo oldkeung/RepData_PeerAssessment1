@@ -32,7 +32,11 @@ activity$date <- as.Date(activity$date)
 
 ```r
 totalStepPerDay <- aggregate(steps ~ date, data = activity, sum, na.rm = TRUE)
-with(totalStepPerDay, barplot(height = steps, names.arg = date, xlab = "", ylab = "Steps", main = 'Total Number of Steps Taken Each Day'))
+hist(totalStepPerDay$steps, 
+     breaks = 20,
+     main = 'Number of Steps Taken Each Day',
+     xlab = 'Total Number of Steps', col = 'grey',
+     cex.main = .9)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
@@ -137,7 +141,11 @@ The median number of steps taken each day without and with  missing data filled-
 
 
 ```r
-with(totalNewStepPerDay, barplot(height = steps, names.arg = date, xlab = "", ylab="Steps", main = 'Total Number of Steps Taken Each Day'))
+hist(totalNewStepPerDay$steps, 
+     breaks = 20,
+     main = 'Number of Steps Taken Each Day (with missing data filled-in',
+     xlab = 'Total Number of Steps', col = 'grey',
+     cex.main = .9)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
